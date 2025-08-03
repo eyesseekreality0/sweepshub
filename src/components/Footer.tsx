@@ -41,6 +41,15 @@ const Footer = () => {
               </li>
               <li>
                 <a 
+                  href="mailto:shawn@sweepshub.us"
+                  className="flex items-center gap-2 text-white/60 hover:text-red-500 transition-colors duration-200 text-sm md:text-base"
+                >
+                  <Mail size={16} className="md:hidden" /><Mail size={18} className="hidden md:inline" />
+                  <span>shawn@sweepshub.us</span>
+                </a>
+              </li>
+              <li>
+                <a 
                   href="https://signal.me/#eu/PRhrtX5sczCuuGG60-9w-XI1bCjbYIrbhPvdNe7O9HklBQ-Al-pNo5msjVGXu3N_"
                   target="_blank"
                   rel="noopener noreferrer"
