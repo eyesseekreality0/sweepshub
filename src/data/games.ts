@@ -314,5 +314,19 @@ export const games: Game[] = [
     link: 'https://river777.com/',
     logo: '/riversweeps copy.jpg',
     adminUrl: 'https://www.river-pay.net/login'
+  },
+  {
+    id: 'funstation',
+    name: 'FUNSTATION',
+    link: 'https://www.funstation.site/',
+    logo: '/riversweeps copy.jpg',
+    adminUrl: 'http://admin.funstation.site/'
+  },
+   {
+    id: 'nova',
+    name: 'NOVA',
+    link: 'https://novaplay.cc',
+    logo: '/riversweeps copy.jpg',
+    adminUrl: 'https://wwwbk.novaplay.cc'
   }
 ];
