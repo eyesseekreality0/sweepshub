@@ -319,7 +319,7 @@ export const games: Game[] = [
     id: 'funstation',
     name: 'FUNSTATION',
     link: 'https://www.funstation.site/',
-    logo: '/riversweeps copy.jpg',
+    logo: '/funstation.jpg',
     adminUrl: 'http://admin.funstation.site/'
   },
    {
