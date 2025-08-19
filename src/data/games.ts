@@ -326,7 +326,7 @@ export const games: Game[] = [
     id: 'nova',
     name: 'NOVA',
     link: 'https://novaplay.cc',
-    logo: '/riversweeps copy.jpg',
+    logo: '/IMG_2663.jpeg',
     adminUrl: 'https://wwwbk.novaplay.cc'
   }
 ];
