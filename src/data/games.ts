@@ -335,7 +335,7 @@ export const games: Game[] = [
     link: 'https://novaplay.cc',
     logo: '/IMG_2683.jpeg',
     adminUrl: 'https://wwwbk.novaplay.cc'
-  }
+  },
    {
     id: 'big-daddy-dragon',
     name: 'BIGDADDYDRAGON',
