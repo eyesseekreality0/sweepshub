@@ -217,6 +217,13 @@ export const games: Game[] = [
     logo: '/lf.jpg',
     adminUrl: 'https://yadsz.legendfire.xyz/#/login'
   },
+   {
+    id: 'orca',
+    name: 'ORCA',
+    link: 'https://playorca.mobi/',
+    logo: '/orca.jpg',
+    adminUrl: 'https://pos.playorca.mobi/'
+  },
   {
     id: 'vegas-roll',
     name: 'VEGAS ROLL',
@@ -343,11 +350,4 @@ export const games: Game[] = [
     logo: '/bigdaddydragon.jpg',
     adminUrl: 'https://pos.playbdd.com/'
   },
-  {
-    id: 'orca',
-    name: 'ORCA',
-    link: 'https://playorca.mobi/',
-    logo: '/orca.jpg',
-    adminUrl: 'https://pos.playorca.mobi/'
-  }
 ];
