@@ -169,6 +169,13 @@ export const games: Game[] = [
     adminUrl: 'https://agent.galaxyworld999.com/userManagement'
   },
    {
+    id: 'megaspin',
+    name: 'MEGASPIN',
+    link: 'http://www.megaspinsweeps.com/index.html',
+    logo: '/ms.jpg',
+    adminUrl: 'https://megaspinpay.com/default.aspx'
+  },
+   {
     id: 'vblink',
     name: 'VBLINK',
     link: 'https://www.vblink777.club/',
@@ -244,13 +251,6 @@ export const games: Game[] = [
     link: 'https://www.cashfrenzy777.com/',
     logo: '/cashfrenzy.jpg',
     adminUrl: 'https://agentserver.cashfrenzy777.com/admin'
-  },
-  {
-    id: 'megaspin',
-    name: 'MEGASPIN',
-    link: 'http://www.megaspinsweeps.com/index.html',
-    logo: '/ms.jpg',
-    adminUrl: 'https://megaspinpay.com/default.aspx'
   },
   {
     id: 'river-monster',
