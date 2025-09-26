@@ -342,7 +342,7 @@ export const games: Game[] = [
     link: 'https://www.playbdd.com/',
     logo: '/bigdaddydragon.jpg',
     adminUrl: 'https://pos.playbdd.com/'
-  }
+  },
   {
     id: 'orca',
     name: 'ORCA',
