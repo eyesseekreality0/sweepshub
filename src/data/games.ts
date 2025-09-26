@@ -350,4 +350,11 @@ export const games: Game[] = [
     logo: '/bigdaddydragon.jpg',
     adminUrl: 'https://pos.playbdd.com/'
   },
+  {
+    id: 'great-balls-of-fire',
+    name: 'GREATBALLSOFFIRE',
+    link: 'https://play.greatballsoffire.games/',
+    logo: '/greatballsoffire.jpg',
+    adminUrl: 'https://pos.playbdd.com/'
+  },
 ];
