@@ -336,4 +336,11 @@ export const games: Game[] = [
     logo: '/IMG_2683.jpeg',
     adminUrl: 'https://wwwbk.novaplay.cc'
   }
+   {
+    id: 'big-daddy-dragon',
+    name: 'BIGDADDYDRAGON',
+    link: 'https://www.playbdd.com/',
+    logo: '/IMG_2683.jpeg',
+    adminUrl: 'https://pos.playbdd.com/'
+  }
 ];
