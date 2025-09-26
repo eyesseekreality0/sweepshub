@@ -11,6 +11,14 @@ const GamesList = () => {
     game.name.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
+  // Helper function to format game names for better mobile display
+  const formatGameName = (name: string) => {
+    // Add spaces before capital letters in long words for better wrapping
+    if (name === 'BIGDADDYDRAGON') return 'BIG DADDY DRAGON';
+    if (name === 'GREATBALLSOFFIRE') return 'GREAT BALLS OF FIRE';
+    return name;
+  };
+
   return (
     <section className="pt-0 pb-4 md:pb-16 relative" id="games">
       <div className="container mx-auto px-4">
@@ -51,7 +59,9 @@ const GamesList = () => {
                   />
                 </div>
                 <div className="p-2 md:p-3 flex flex-col gap-2 md:gap-3">
-                  <h3 className="text-sm md:text-base font-semibold text-center leading-tight">{game.name}</h3>
+                  <h3 className="text-xs md:text-base font-semibold text-center leading-tight break-words hyphens-auto min-h-[2.5rem] md:min-h-[3rem] flex items-center justify-center">
+                    {formatGameName(game.name)}
+                  </h3>
                   <div className="relative group">
                     <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-400 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-200"></div>
                     <motion.a
