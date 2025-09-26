@@ -340,7 +340,7 @@ export const games: Game[] = [
     id: 'big-daddy-dragon',
     name: 'BIGDADDYDRAGON',
     link: 'https://www.playbdd.com/',
-    logo: '/IMG_2683.jpeg',
+    logo: '/bigdaddydragon.jpg',
     adminUrl: 'https://pos.playbdd.com/'
   }
 ];
