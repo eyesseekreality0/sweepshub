@@ -32,7 +32,7 @@ export const games: Game[] = [
     id: 'vblink',
     name: 'VBLINK',
     link: 'https://www.vblink777.club/',
-    logo: '/vl.jpg',
+    logo: '/v.jpg',
     adminUrl: 'https://gm.vblink777.club/#/index'
   },
   {
