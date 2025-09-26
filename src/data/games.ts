@@ -29,20 +29,6 @@ export const games: Game[] = [
     adminUrl: 'https://agentserver1.gameroom777.com/admin/login'
   },
   {
-    id: 'vblink',
-    name: 'VBLINK',
-    link: 'https://www.vblink777.club/',
-    logo: '/v.jpg',
-    adminUrl: 'https://gm.vblink777.club/#/index'
-  },
-  {
-    id: 'ultra-panda',
-    name: 'ULTRA PANDA',
-    link: 'https://www.ultrapanda.mobi/',
-    logo: '/up.jpg',
-    adminUrl: 'https://ht.ultrapanda.mobi/?#/index'
-  },
-  {
     id: 'fire-kirin',
     name: 'FIRE KIRIN',
     link: 'http://start.firekirin.xyz:8580/index.html',
@@ -162,20 +148,6 @@ export const games: Game[] = [
     adminUrl: 'https://pos.fpc-mob.com/Index.aspx?it=0.5886195963028726'
   },
   {
-    id: 'acebook',
-    name: 'ACEBOOK',
-    link: 'https://www.playacebook.mobi/',
-    logo: '/acebook.jpg',
-    adminUrl: 'https://djwae.playacebook.mobi/#/index'
-  },
-  {
-    id: 'golden-treasure',
-    name: 'GOLDEN TREASURE',
-    link: 'https://www.goldentreasure.mobi/',
-    logo: '/goldentreasure.jpg',
-    adminUrl: 'https://agent.goldentreasure.mobi/#/index'
-  },
-  {
     id: 'blue-dragon',
     name: 'BLUE DRAGON',
     link: 'https://web.bluedragon777.com',
@@ -196,6 +168,41 @@ export const games: Game[] = [
     logo: '/gw.jpg',
     adminUrl: 'https://agent.galaxyworld999.com/userManagement'
   },
+   {
+    id: 'vblink',
+    name: 'VBLINK',
+    link: 'https://www.vblink777.club/',
+    logo: '/v.jpg',
+    adminUrl: 'https://gm.vblink777.club/#/index'
+  },
+  {
+    id: 'ultra-panda',
+    name: 'ULTRA PANDA',
+    link: 'https://www.ultrapanda.mobi/',
+    logo: '/up.jpg',
+    adminUrl: 'https://ht.ultrapanda.mobi/?#/index'
+  },
+   {
+    id: 'acebook',
+    name: 'ACEBOOK',
+    link: 'https://www.playacebook.mobi/',
+    logo: '/acebook.jpg',
+    adminUrl: 'https://djwae.playacebook.mobi/#/index'
+  },
+  {
+    id: 'golden-treasure',
+    name: 'GOLDEN TREASURE',
+    link: 'https://www.goldentreasure.mobi/',
+    logo: '/goldentreasure.jpg',
+    adminUrl: 'https://agent.goldentreasure.mobi/#/index'
+  },
+  {
+    id: 'glamourspin',
+    name: 'GLAMOURSPIN',
+    link: 'https://www.glamourspin.mobi/',
+    logo: '/gs.jpg',
+    adminUrl: 'https://acwwf.glamourspin.mobi/#/login?redirect=%2F'
+  },
   {
     id: 'fish-glory',
     name: 'FISH GLORY',
@@ -204,18 +211,18 @@ export const games: Game[] = [
     adminUrl: 'https://dxr.fishglory.games/?#/index'
   },
   {
-    id: 'vegas-roll',
-    name: 'VEGAS ROLL',
-    link: 'http://www.vegas-roll.com/m',
-    logo: '/vr.jpg',
-    adminUrl: 'https://backend.vegas-roll.com/admin/login'
-  },
-  {
     id: 'legend-fire',
     name: 'LEGEND FIRE',
     link: 'https://www.legendfire.xyz/',
     logo: '/lf.jpg',
     adminUrl: 'https://yadsz.legendfire.xyz/#/login'
+  },
+  {
+    id: 'vegas-roll',
+    name: 'VEGAS ROLL',
+    link: 'http://www.vegas-roll.com/m',
+    logo: '/vr.jpg',
+    adminUrl: 'https://backend.vegas-roll.com/admin/login'
   },
   {
     id: 'winners-club',
