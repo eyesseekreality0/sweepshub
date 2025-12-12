@@ -7,14 +7,6 @@ interface HeroProps {
 }
 
 const Hero: React.FC<HeroProps> = ({ onSectionChange }) => {
-  const scrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="pt-20 pb-12 md:pt-32 md:pb-20 relative overflow-hidden" id="home">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(154,47,255,0.2),transparent_35%),radial-gradient(circle_at_70%_10%,rgba(57,255,20,0.18),transparent_35%),radial-gradient(circle_at_50%_70%,rgba(154,47,255,0.25),transparent_35%)]"></div>
@@ -125,15 +117,14 @@ const Hero: React.FC<HeroProps> = ({ onSectionChange }) => {
               >
                 View Games <ArrowRight size={16} />
               </motion.button>
-              <motion.a
-                href="#contact"
+              <motion.button
+                onClick={() => onSectionChange('backend')}
                 className="px-4 md:px-6 py-2.5 md:py-3 bg-transparent hover:bg-white/5 border border-electric-500/40 text-white rounded-lg font-semibold text-center transition duration-200 text-sm md:text-base"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={scrollToContact}
               >
-                Contact Us
-              </motion.a>
+                Admin Links
+              </motion.button>
             </div>
           </motion.div>
 
