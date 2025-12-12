@@ -30,7 +30,7 @@ const GamesList = () => {
           transition={{ duration: 0.6 }}
         >
           <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-2 md:mb-4 text-neon-500 neon-title">
-            Available <span className="text-white">Games</span>
+            Pimp <span className="text-white">Gamez</span>
           </h2>
         </motion.div>
 
@@ -51,6 +51,14 @@ const GamesList = () => {
               whileHover={{ y: -5, transition: { duration: 0.2 } }}
             >
               <div className="p-3 md:p-4 flex flex-col gap-3 md:gap-4 h-full">
+                <div className="bg-charcoal-900/80 rounded-lg p-3 flex items-center justify-center h-24 border border-electric-500/10">
+                  <img
+                    src={game.logo}
+                    alt={game.name}
+                    className="max-h-full w-full object-contain"
+                    loading="lazy"
+                  />
+                </div>
                 <h3 className="text-sm md:text-lg font-semibold text-center leading-tight break-words hyphens-auto flex items-center justify-center min-h-[2.5rem]">
                   {formatGameName(game.name)}
                 </h3>
