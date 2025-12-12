@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Menu, X } from 'lucide-react';
 
 interface HeaderProps {
   currentSection: 'games' | 'backend';
@@ -9,7 +8,6 @@ interface HeaderProps {
 
 const Header: React.FC<HeaderProps> = ({ currentSection, onSectionChange }) => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,16 +19,6 @@ const Header: React.FC<HeaderProps> = ({ currentSection, onSectionChange }) => {
 
   const handleSectionChange = (section: 'games' | 'backend') => {
     onSectionChange(section);
-    setIsMenuOpen(false);
-  };
-
-  const scrollToContact = (e: React.MouseEvent) => {
-    e.preventDefault();
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMenuOpen(false);
-    }
   };
 
   return (
@@ -60,53 +48,54 @@ const Header: React.FC<HeaderProps> = ({ currentSection, onSectionChange }) => {
           </motion.button>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-4">
-            <motion.a
-              href="#contact"
-              className="px-3 md:px-4 py-1.5 md:py-2 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-md font-semibold transition duration-200 text-sm md:text-base shadow-[0_0_18px_rgba(154,47,255,0.4)]"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              onClick={scrollToContact}
-            >
-              Contact Us
-            </motion.a>
+          <nav className="hidden md:flex items-center space-x-3 md:space-x-4">
+            {(
+              [
+                { key: 'games' as const, label: 'Games' },
+                { key: 'backend' as const, label: 'Admin Links' }
+              ]
+            ).map((section) => (
+              <motion.button
+                key={section.key}
+                onClick={() => handleSectionChange(section.key)}
+                className={`px-3 md:px-4 py-1.5 md:py-2 rounded-md font-semibold transition duration-200 text-sm md:text-base shadow-[0_0_18px_rgba(154,47,255,0.35)] ${
+                  currentSection === section.key
+                    ? 'bg-gradient-to-r from-electric-500 to-neon-500 text-black'
+                    : 'bg-white/5 text-white hover:bg-white/10'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {section.label}
+              </motion.button>
+            ))}
           </nav>
-
-          {/* Mobile Menu Button */}
-          <motion.button
-            className="md:hidden text-white"
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            whileTap={{ scale: 0.9 }}
-          >
-            {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-          </motion.button>
-        </div>
-      </div>
-
-      {/* Mobile Navigation */}
-      <motion.nav
-        className={`md:hidden fixed inset-x-0 top-[60px] bg-charcoal-800/95 backdrop-blur-md shadow-[0_12px_30px_rgba(154,47,255,0.25)] ${
-          isMenuOpen ? 'block' : 'hidden'
-        }`}
-        initial={{ opacity: 0, y: -20 }}
-        animate={{
-          opacity: isMenuOpen ? 1 : 0,
-          y: isMenuOpen ? 0 : -20
-        }}
-        transition={{ duration: 0.2 }}
-      >
-        <div className="container mx-auto px-4 py-3">
-          <div className="flex flex-col space-y-2">
-            <a
-              href="#contact"
-              className="px-4 py-2.5 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-lg font-semibold text-center transition duration-200 text-sm shadow-[0_0_18px_rgba(57,255,20,0.35)]"
-              onClick={scrollToContact}
-            >
-              Contact Us
-            </a>
+          
+          {/* Mobile Menu Buttons */}
+          <div className="md:hidden flex items-center space-x-2">
+            {(
+              [
+                { key: 'games' as const, label: 'Games' },
+                { key: 'backend' as const, label: 'Admin' }
+              ]
+            ).map((section) => (
+              <motion.button
+                key={section.key}
+                onClick={() => handleSectionChange(section.key)}
+                className={`px-3 py-1.5 rounded-md font-semibold transition duration-200 text-xs shadow-[0_0_14px_rgba(154,47,255,0.35)] ${
+                  currentSection === section.key
+                    ? 'bg-gradient-to-r from-electric-500 to-neon-500 text-black'
+                    : 'bg-white/5 text-white hover:bg-white/10'
+                }`}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {section.label}
+              </motion.button>
+            ))}
           </div>
         </div>
-      </motion.nav>
+      </div>
     </motion.header>
   );
 };
