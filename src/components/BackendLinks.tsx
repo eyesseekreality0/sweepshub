@@ -33,7 +33,7 @@ const BackendLinks = () => {
         />
 
         <motion.ul
-          className="grid grid-cols-3 gap-3 md:gap-4"
+          className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-2 md:gap-3"
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
@@ -46,8 +46,18 @@ const BackendLinks = () => {
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="p-3 md:p-4 flex flex-col gap-3 md:gap-4">
-                <h3 className="text-sm md:text-lg font-medium text-center leading-tight">{game.name}</h3>
+              <div className="p-2.5 md:p-3 flex flex-col gap-2.5 md:gap-3 h-full">
+                <div className="bg-charcoal-900/80 rounded-lg flex items-center justify-center aspect-square border border-electric-500/10">
+                  <img
+                    src={game.logo}
+                    alt={game.name}
+                    className="h-full w-full object-cover"
+                    loading="lazy"
+                  />
+                </div>
+                <h3 className="text-xs md:text-sm font-semibold text-center leading-tight break-words hyphens-auto min-h-[2.5rem] flex items-center justify-center">
+                  {game.name}
+                </h3>
                 <motion.a
                   href={game.adminUrl}
                   target="_blank"
