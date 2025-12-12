@@ -46,15 +46,8 @@ const BackendLinks = () => {
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="p-2 md:p-3">
-                <div className="aspect-square overflow-hidden rounded-lg mb-2 md:mb-3">
-                  <img
-                    src={game.logo}
-                    alt={`${game.name} logo`}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
-                <h3 className="text-sm md:text-base font-medium text-center mb-2 md:mb-3 leading-tight">{game.name}</h3>
+              <div className="p-3 md:p-4 flex flex-col gap-3 md:gap-4">
+                <h3 className="text-sm md:text-lg font-medium text-center leading-tight">{game.name}</h3>
                 <motion.a
                   href={game.adminUrl}
                   target="_blank"
