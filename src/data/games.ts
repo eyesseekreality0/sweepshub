@@ -197,6 +197,13 @@ export const games: Game[] = [
     adminUrl: 'https://djwae.playacebook.mobi/#/index'
   },
   {
+    id: 'egame',
+    name: 'EGAME',
+    link: 'https://www.egame99.club/',
+    logo: '/egame.jpg',
+    adminUrl: 'https://pko.egame99.club/'
+  },
+  {
     id: 'golden-treasure',
     name: 'GOLDEN TREASURE',
     link: 'https://www.goldentreasure.mobi/',
