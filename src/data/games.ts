@@ -355,7 +355,7 @@ export const games: Game[] = [
     name: 'BIGDADDYDRAGON',
     link: 'https://www.playbdd.com/',
     logo: '/bigdaddydragon.jpg',
-    adminUrl: 'https://pos.playbdd.com/'
+    adminUrl: 'https://pos2.playbdd.com/pos/index-ocean2go.html?k=default'
   },
   {
     id: 'great-balls-of-fire',
