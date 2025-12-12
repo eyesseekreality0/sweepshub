@@ -39,7 +39,7 @@ const ParticleBackground: React.FC = () => {
         this.speedY = (Math.random() - 0.5) * 0.5;
         this.rotation = Math.random() * Math.PI * 2;
         this.rotationSpeed = (Math.random() - 0.5) * 0.02;
-        this.color = Math.random() > 0.5 ? '#FFD700' : '#DC143C';
+        this.color = Math.random() > 0.5 ? '#39FF14' : '#9A2FFF';
       }
 
       update() {

@@ -36,11 +36,11 @@ const About = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4">
-            How Our <span className="text-primary-600">Credit System</span> Works
+          <h2 className="text-3xl md:text-4xl font-heading font-bold mb-4 text-neon-500 neon-title">
+            How Our <span className="text-white">Credit System</span> Works
           </h2>
           <p className="text-white/70">
-            Sweeps Hub provides a streamlined system for gameroom owners to purchase and manage game credits.
+            Pimp Gamez provides a streamlined system for gameroom owners to purchase and manage game credits.
           </p>
         </motion.div>
 
