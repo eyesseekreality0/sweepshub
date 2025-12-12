@@ -21,8 +21,8 @@ const BackendLinks = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-2 md:mb-4">
-            Admin <span className="text-red-500">Backend Links</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-2 md:mb-4 text-neon-500 neon-title">
+            Admin <span className="text-white">Backend Links</span>
           </h2>
         </motion.div>
 
@@ -42,13 +42,13 @@ const BackendLinks = () => {
           {filteredGames.map((game) => (
             <motion.li
               key={game.id}
-              className="bg-navy-800 rounded-xl overflow-hidden"
+              className="bg-charcoal-800 rounded-xl overflow-hidden border border-electric-500/20 shadow-[0_0_20px_rgba(154,47,255,0.15)]"
               whileHover={{ y: -5 }}
               transition={{ duration: 0.2 }}
             >
               <div className="p-2 md:p-3">
                 <div className="aspect-square overflow-hidden rounded-lg mb-2 md:mb-3">
-                  <img 
+                  <img
                     src={game.logo}
                     alt={`${game.name} logo`}
                     className="w-full h-full object-cover"
@@ -59,7 +59,7 @@ const BackendLinks = () => {
                   href={game.adminUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1 md:gap-2 w-full py-2 md:py-2.5 px-2 md:px-3 bg-red-600 hover:bg-red-500 text-white rounded-lg font-medium text-xs md:text-sm transition-colors duration-200"
+                  className="flex items-center justify-center gap-1 md:gap-2 w-full py-2 md:py-2.5 px-2 md:px-3 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-lg font-medium text-xs md:text-sm transition-colors duration-200 shadow-[0_0_18px_rgba(57,255,20,0.35)]"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >

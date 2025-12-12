@@ -20,7 +20,7 @@ function App() {
   };
 
   return (
-    <div className="min-h-screen bg-dark-950 text-white relative overflow-hidden">
+    <div className="min-h-screen bg-midnight-975 text-white relative overflow-hidden">
       <ParticleBackground />
       
       <motion.div
@@ -39,7 +39,7 @@ function App() {
                 <div className="container mx-auto px-4 pb-8 md:pb-16">
                   <motion.button
                     onClick={() => handleSectionChange('backend')}
-                    className="mx-auto block px-4 md:px-8 py-2 md:py-3 bg-red-600 hover:bg-red-500 text-white rounded-lg font-semibold transition-colors duration-200 text-sm md:text-base"
+                    className="mx-auto block px-4 md:px-8 py-2 md:py-3 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-lg font-semibold transition-colors duration-200 text-sm md:text-base shadow-[0_0_25px_rgba(57,255,20,0.4)]"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
@@ -53,7 +53,7 @@ function App() {
                 <div className="container mx-auto px-4 pb-8 md:pb-16">
                   <motion.button
                     onClick={() => handleSectionChange('games')}
-                    className="mx-auto block px-4 md:px-8 py-2 md:py-3 bg-red-600 hover:bg-red-500 text-white rounded-lg font-semibold transition-colors duration-200 text-sm md:text-base"
+                    className="mx-auto block px-4 md:px-8 py-2 md:py-3 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-lg font-semibold transition-colors duration-200 text-sm md:text-base shadow-[0_0_25px_rgba(57,255,20,0.4)]"
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >

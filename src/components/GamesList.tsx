@@ -29,8 +29,8 @@ const GamesList = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
         >
-          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-2 md:mb-4">
-            Available <span className="text-red-500">Games</span>
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-heading font-bold mb-2 md:mb-4 text-neon-500 neon-title">
+            Available <span className="text-white">Games</span>
           </h2>
         </motion.div>
 
@@ -43,7 +43,7 @@ const GamesList = () => {
           {filteredGames.map((game) => (
             <motion.div
               key={game.id}
-              className="bg-navy-800 rounded-xl overflow-hidden group"
+              className="bg-charcoal-800 rounded-xl overflow-hidden group border border-electric-500/20 shadow-[0_0_20px_rgba(154,47,255,0.15)]"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -63,12 +63,12 @@ const GamesList = () => {
                     {formatGameName(game.name)}
                   </h3>
                   <div className="relative group">
-                    <div className="absolute -inset-0.5 bg-gradient-to-r from-red-600 to-red-400 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-200"></div>
+                    <div className="absolute -inset-0.5 bg-gradient-to-r from-electric-500 to-neon-500 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-200"></div>
                     <motion.a
                       href={game.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex items-center justify-center gap-1 md:gap-2 w-full py-2 md:py-2.5 bg-gradient-to-r from-red-500 to-red-400 hover:from-red-400 hover:to-red-300 text-white rounded-lg font-medium transition-colors duration-200 text-xs md:text-sm"
+                      className="relative flex items-center justify-center gap-1 md:gap-2 w-full py-2 md:py-2.5 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-lg font-medium transition-colors duration-200 text-xs md:text-sm"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
