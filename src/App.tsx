@@ -40,7 +40,16 @@ function App() {
   ];
 
   return (
-    <div className="min-h-screen bg-midnight-975 text-white relative overflow-hidden">
+    <div className="min-h-screen text-white relative overflow-hidden bg-black">
+      <video
+        className="fixed inset-0 w-full h-full object-cover brightness-[0.62] saturate-125"
+        src="https://cdn.coverr.co/videos/coverr-fantastic-galaxy-1467/1080p.mp4"
+        autoPlay
+        loop
+        muted
+        playsInline
+      />
+      <div className="fixed inset-0 bg-gradient-to-br from-[#0a0f1e]/80 via-[#0c1b29]/70 to-[#120926]/78 mix-blend-screen" aria-hidden />
       <div className="relative z-10">
         <header className="sticky top-0 z-20 bg-midnight-975/85 backdrop-blur border-b border-electric-500/10">
           <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-4">
