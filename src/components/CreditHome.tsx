@@ -6,12 +6,26 @@ import { games } from '../data/games';
 
 const normalizeName = (value: string) => value.replace(/\s+/g, '').toLowerCase();
 const gameLogoMap = new Map(games.map((game) => [normalizeName(game.name), game.logo]));
+const customLogoMap = new Map(
+  [
+    ['luckyparadise', '/lp.jpg'],
+    ['joker', '/joker.png'],
+    ['mawal', '/mawal.png'],
+    ['moolah', '/moo.jpg'],
+    ['magictime', '/fortune2go.jpg'],
+  ] as const
+);
 
 const buildGameEntries = (names: string[]) =>
-  names.map((name) => ({
-    name,
-    logo: gameLogoMap.get(normalizeName(name)),
-  }));
+  names.map((name) => {
+    const normalized = normalizeName(name);
+    const fallbackLogo = customLogoMap.get(normalized);
+
+    return {
+      name,
+      logo: gameLogoMap.get(normalized) ?? fallbackLogo,
+    };
+  });
 
 const renderLogoGrid = (items: { name: string; logo: string | undefined }[]) => (
   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mt-6">
@@ -47,34 +61,26 @@ const CreditHome = () => {
           transition={{ duration: 0.6 }}
         >
           <div className="space-y-4 md:space-y-6">
-            <p className="text-sm uppercase tracking-[0.25em] text-white/60 flex items-center gap-2">
+            <p className="text-base uppercase tracking-[0.3em] text-neon-400/90 flex items-center gap-2 font-semibold">
               <span className="h-[1px] w-10 bg-electric-500/60" aria-hidden="true" />
-              Instant credit loads
+              Epic instant credit loads
             </p>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-neon-500 leading-tight">
-              Premium credits for the best rates
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-neon-400 leading-tight drop-shadow-[0_0_24px_rgba(98,255,203,0.35)]">
+              Premium credits, cosmic vibes
             </h1>
-            <p className="text-base md:text-lg text-white/80 max-w-2xl leading-relaxed">
-              Pick your platforms, drop the amount, and we handle the rest. Transparent pricing and rapid fulfillment keep you in the
-              action without the wait.
+            <p className="text-lg md:text-xl text-white/90 max-w-2xl leading-relaxed">
+              Pick your platforms, drop the amount, and we handle the rest. Ultra-readable neon text keeps your eye on what matters while the universe loops behind you.
             </p>
 
-            <div className="grid sm:grid-cols-3 gap-4">
-              {[tieredDiscount, premiumRate].map((offer) => (
-                <div
-                  key={offer.title}
-                  className="bg-charcoal-900/70 border border-electric-500/15 rounded-xl px-4 py-3 flex flex-col gap-1"
+            <div className="flex flex-wrap gap-3 pt-2">
+              {["Fast drops", "Secure loads", "Responsive support"].map((pill) => (
+                <span
+                  key={pill}
+                  className="px-4 py-2 rounded-full bg-charcoal-900/80 border border-electric-500/25 text-sm font-semibold text-white/90 shadow-[0_0_18px_rgba(154,47,255,0.25)]"
                 >
-                  <p className="text-xs uppercase tracking-[0.18em] text-white/55">{offer.title}</p>
-                  <p className="text-lg font-heading font-bold text-neon-500">{offer.rate}</p>
-                  <p className="text-sm text-white/75 leading-snug">{offer.description}</p>
-                </div>
+                  {pill}
+                </span>
               ))}
-              <div className="bg-charcoal-900/70 border border-electric-500/15 rounded-xl px-4 py-3 flex flex-col gap-1">
-                <p className="text-xs uppercase tracking-[0.18em] text-white/55">Fulfillment</p>
-                <p className="text-lg font-heading font-bold text-neon-500">Fast & secure</p>
-                <p className="text-sm text-white/75 leading-snug">Verified distributor with responsive support when you need it.</p>
-              </div>
             </div>
           </div>
 
@@ -94,51 +100,27 @@ const CreditHome = () => {
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          <motion.div
-            className="bg-charcoal-800/80 border border-electric-500/15 rounded-2xl p-6 md:p-8 shadow-[0_0_22px_rgba(57,255,20,0.12)]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.08 }}
-          >
-            <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-              <div className="flex items-center gap-3">
+          {[{ title: 'Featured credit partners', icon: <BadgePercent className="text-neon-500" size={28} />, logos: tieredLogos }, { title: 'Premium picks', icon: <Sparkles className="text-neon-500" size={28} />, logos: premiumLogos }].map((section) => (
+            <motion.div
+              key={section.title}
+              className="bg-charcoal-800/80 border border-electric-500/15 rounded-2xl p-6 md:p-8 shadow-[0_0_22px_rgba(57,255,20,0.12)]"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.08 }}
+            >
+              <div className="flex items-center gap-3 mb-3">
                 <div className="p-3 rounded-2xl bg-gradient-to-br from-electric-500/20 to-neon-500/20 border border-electric-500/30">
-                  <BadgePercent className="text-electric-400" size={28} />
+                  {section.icon}
                 </div>
                 <div>
-                  <p className="text-sm uppercase tracking-[0.25em] text-white/60">Deals that scale</p>
-                  <h2 className="text-2xl md:text-3xl font-heading font-bold text-neon-500">{tieredDiscount.rate}</h2>
-                  <p className="text-white/80 mt-1">{tieredDiscount.description}</p>
+                  <p className="text-sm uppercase tracking-[0.22em] text-white/70">{section.title}</p>
+                  <p className="text-white/85">Tap a platform to load faster.</p>
                 </div>
               </div>
-              <div className="rounded-xl bg-charcoal-900/70 border border-electric-500/20 px-4 py-3 text-sm text-white/80 shadow-inner">
-                <p className="font-semibold text-white">{tieredDiscount.title}</p>
-                <p>No hidden fees. Transparent Pricing.</p>
-              </div>
-            </div>
-            {renderLogoGrid(tieredLogos)}
-          </motion.div>
-
-          <motion.div
-            className="bg-charcoal-800/80 border border-electric-500/15 rounded-2xl p-6 md:p-8 shadow-[0_0_22px_rgba(57,255,20,0.12)]"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.15 }}
-          >
-            <div className="flex items-center gap-3">
-              <div className="p-3 rounded-2xl bg-gradient-to-br from-electric-500/20 to-neon-500/20 border border-electric-500/30">
-                <Sparkles className="text-electric-400" size={28} />
-              </div>
-              <div>
-                <p className="text-sm uppercase tracking-[0.25em] text-white/60">Premium picks</p>
-                <h2 className="text-2xl font-heading font-bold text-neon-500">{premiumRate.rate}</h2>
-                <p className="text-white/80 mt-1">{premiumRate.description}</p>
-              </div>
-            </div>
-            {renderLogoGrid(premiumLogos)}
-          </motion.div>
+              {renderLogoGrid(section.logos)}
+            </motion.div>
+          ))}
         </div>
 
         <motion.div
