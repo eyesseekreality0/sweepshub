@@ -4,8 +4,12 @@
 
 :root {
   color-scheme: dark;
-  background-color: #1b0d2a;
-  background-image: url('/logo.png');
+  background-color: #0b1224;
+  background-image:
+    radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.15), transparent 30%),
+    radial-gradient(circle at 80% 0%, rgba(236, 72, 153, 0.12), transparent 28%),
+    radial-gradient(circle at 80% 70%, rgba(52, 211, 153, 0.12), transparent 32%),
+    linear-gradient(135deg, #0b1224, #0f172a);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

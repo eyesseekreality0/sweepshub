@@ -18,6 +18,19 @@ function App() {
   const [introError, setIntroError] = useState(false);
   const introVideoRef = useRef<HTMLVideoElement>(null);
 
+  const navigate = (target: Route) => {
+    const nextHash = target === 'home' ? '#/home' : target === 'games' ? '#/games' : '#/admin';
+    if (window.location.hash !== nextHash) {
+      window.location.hash = nextHash;
+    }
+    setRoute(target);
+  };
+
+  const handleIntroFinish = () => {
+    navigate('home');
+    setShowIntro(false);
+  };
+
   useEffect(() => {
     const handleHashChange = () => setRoute(getRouteFromHash());
     window.addEventListener('hashchange', handleHashChange);
@@ -38,20 +51,12 @@ function App() {
         await introVideoRef.current.play();
       } catch {
         setIntroError(true);
-        setShowIntro(false);
+        handleIntroFinish();
       }
     };
 
     attemptIntroPlay();
   }, [showIntro]);
-
-  const navigate = (target: Route) => {
-    const nextHash = target === 'home' ? '#/home' : target === 'games' ? '#/games' : '#/admin';
-    if (window.location.hash !== nextHash) {
-      window.location.hash = nextHash;
-    }
-    setRoute(target);
-  };
 
   const navItems: { key: Route; label: string; image: string }[] = [
     { key: 'home', label: 'Credits Home', image: '/credits%20home.png' },
@@ -69,10 +74,10 @@ function App() {
           autoPlay
           muted
           playsInline
-          onEnded={() => setShowIntro(false)}
+          onEnded={handleIntroFinish}
           onError={() => {
             setIntroError(true);
-            setShowIntro(false);
+            handleIntroFinish();
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-electric-500/25 to-neon-500/20" aria-hidden />
@@ -86,16 +91,19 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden bg-[url('/logo.png')] bg-cover bg-center">
-      <div className="fixed inset-0 bg-gradient-to-br from-white/20 via-electric-500/10 to-neon-500/10" aria-hidden />
+    <div className="min-h-screen text-sky-50 relative overflow-hidden bg-slate-950">
+      <div
+        className="fixed inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(56,189,248,0.18),transparent_35%),radial-gradient(circle_at_82%_18%,rgba(236,72,153,0.16),transparent_32%),radial-gradient(circle_at_75%_80%,rgba(52,211,153,0.12),transparent_34%)]"
+        aria-hidden
+      />
       <div className="relative z-10">
-        <header className="sticky top-0 z-20 bg-white/20 backdrop-blur-md border-b border-electric-500/20">
+        <header className="sticky top-0 z-20 bg-slate-900/70 backdrop-blur-lg border-b border-white/10 shadow-lg">
           <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-4">
             <div className="flex items-center gap-3">
               <img src="/pimp-gamez-logo.svg" alt="Pimp Gamez" className="h-10 sm:h-12 w-auto" />
               <div>
-                <p className="text-xs uppercase tracking-[0.2em] text-white/60">Pimp Gamez Hub</p>
-                <h1 className="text-xl font-heading font-bold text-neon-500">Credits, Game & Admin Links</h1>
+                <p className="text-xs uppercase tracking-[0.2em] text-slate-300/80">Pimp Gamez Hub</p>
+                <h1 className="text-2xl font-heading font-semibold text-sky-200">Credits, Game & Admin Links</h1>
               </div>
             </div>
             <div className="flex flex-wrap items-center justify-end gap-4">
@@ -104,17 +112,17 @@ function App() {
                   key={item.key}
                   onClick={() => navigate(item.key)}
                   aria-label={item.label}
-                  className={`group relative flex items-center justify-center rounded-2xl p-2 sm:p-3 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-electric-500/60 ${
+                  className={`group relative flex items-center justify-center rounded-xl p-2 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400/60 ${
                     route === item.key
-                      ? 'scale-[1.05] drop-shadow-[0_0_16px_rgba(57,255,20,0.55)]'
-                      : 'hover:scale-[1.03]'
+                      ? 'bg-gradient-to-br from-sky-500/25 via-emerald-500/20 to-cyan-500/25 border border-sky-400/40 shadow-[0_10px_40px_-18px_rgba(14,165,233,0.6)] scale-[1.02]'
+                      : 'bg-white/5 border border-white/10 hover:border-sky-300/40 hover:bg-white/10'
                   }`}
                 >
                   <span className="sr-only">{item.label}</span>
                   <img
                     src={item.image}
                     alt={item.label}
-                    className="h-16 sm:h-20 md:h-24 w-auto object-contain block mx-auto drop-shadow-[0_0_18px_rgba(57,255,20,0.55)] transition duration-200 group-hover:drop-shadow-[0_0_24px_rgba(57,255,20,0.7)]"
+                    className="h-16 sm:h-20 md:h-24 w-auto object-contain block mx-auto drop-shadow-[0_10px_22px_rgba(14,165,233,0.35)] transition duration-200 group-hover:drop-shadow-[0_12px_24px_rgba(14,165,233,0.5)]"
                     loading="eager"
                   />
                 </button>
