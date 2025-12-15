@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import GamesList from './components/GamesList';
 import BackendLinks from './components/BackendLinks';
 import CreditHome from './components/CreditHome';
@@ -14,6 +14,22 @@ const getRouteFromHash = (): Route => {
 
 function App() {
   const [route, setRoute] = useState<Route>(getRouteFromHash);
+  const [videoError, setVideoError] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  const videoSources = useMemo(
+    () => [
+      {
+        src: 'https://cdn.coverr.co/videos/coverr-fantastic-galaxy-1467/1080p.mp4',
+        type: 'video/mp4'
+      },
+      {
+        src: 'https://cdn.coverr.co/videos/coverr-night-sky-4310/1080p.mp4',
+        type: 'video/mp4'
+      }
+    ],
+    []
+  );
 
   useEffect(() => {
     const handleHashChange = () => setRoute(getRouteFromHash());
@@ -23,6 +39,21 @@ function App() {
       setRoute('home');
     }
     return () => window.removeEventListener('hashchange', handleHashChange);
+  }, []);
+
+  useEffect(() => {
+    const attemptPlay = async () => {
+      const element = videoRef.current;
+      if (!element) return;
+
+      try {
+        await element.play();
+      } catch (error) {
+        setVideoError(true);
+      }
+    };
+
+    attemptPlay();
   }, []);
 
   const navigate = (target: Route) => {
@@ -41,14 +72,30 @@ function App() {
 
   return (
     <div className="min-h-screen text-white relative overflow-hidden bg-black">
-      <video
-        className="fixed inset-0 w-full h-full object-cover brightness-[0.62] saturate-125"
-        src="https://cdn.coverr.co/videos/coverr-fantastic-galaxy-1467/1080p.mp4"
-        autoPlay
-        loop
-        muted
-        playsInline
-      />
+      {!videoError && (
+        <video
+          ref={videoRef}
+          className="fixed inset-0 w-full h-full object-cover brightness-[0.62] saturate-125"
+          autoPlay
+          loop
+          muted
+          playsInline
+          preload="auto"
+          poster="/tech-pimp-bg.svg"
+          onError={() => setVideoError(true)}
+          onLoadedData={() => setVideoError(false)}
+        >
+          {videoSources.map((source) => (
+            <source key={source.src} src={source.src} type={source.type} />
+          ))}
+        </video>
+      )}
+      {videoError && (
+        <div
+          className="fixed inset-0 bg-[url('/tech-pimp-bg.svg')] bg-cover bg-center brightness-75"
+          aria-hidden
+        />
+      )}
       <div className="fixed inset-0 bg-gradient-to-br from-[#0a0f1e]/80 via-[#0c1b29]/70 to-[#120926]/78 mix-blend-screen" aria-hidden />
       <div className="relative z-10">
         <header className="sticky top-0 z-20 bg-midnight-975/85 backdrop-blur border-b border-electric-500/10">
