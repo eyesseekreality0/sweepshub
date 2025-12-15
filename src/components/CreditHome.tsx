@@ -28,20 +28,20 @@ const buildGameEntries = (names: string[]) =>
   });
 
 const renderLogoGrid = (items: { name: string; logo: string | undefined }[]) => (
-  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mt-6">
+  <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-3 mt-5">
     {items.map(({ name, logo }) => (
       <div
         key={name}
-        className="bg-charcoal-900/70 border border-electric-500/20 rounded-xl p-3 flex flex-col items-center gap-2 shadow-[0_0_12px_rgba(57,255,20,0.1)]"
+        className="rounded-xl p-3 flex flex-col items-center gap-2 border border-electric-500/30 bg-white/5 backdrop-blur-md shadow-[0_0_12px_rgba(57,255,20,0.14)]"
       >
         {logo ? (
           <img src={logo} alt={`${name} logo`} className="h-12 w-full object-contain" loading="lazy" />
         ) : (
-          <div className="h-12 w-full rounded-lg bg-charcoal-800 flex items-center justify-center text-[11px] text-white/70 border border-dashed border-electric-500/30">
+          <div className="h-12 w-full rounded-lg bg-white/10 flex items-center justify-center text-[11px] text-white/80 border border-dashed border-electric-500/40">
             {name}
           </div>
         )}
-        <p className="text-xs font-semibold text-white/90 text-center leading-tight">{name}</p>
+        <p className="text-xs font-semibold text-white text-center leading-tight">{name}</p>
       </div>
     ))}
   </div>
@@ -100,7 +100,16 @@ const CreditHome = () => {
         </motion.div>
 
         <div className="grid gap-6 lg:grid-cols-2">
-          {[{ title: 'Featured credit partners', icon: <BadgePercent className="text-neon-500" size={28} />, logos: tieredLogos }, { title: 'Premium picks', icon: <Sparkles className="text-neon-500" size={28} />, logos: premiumLogos }].map((section) => (
+          {[{ title: 'Featured credit partners', icon: <BadgePercent className="text-neon-500" size={28} />, logos: tieredLogos, rateLine: (
+              <div className="flex flex-wrap gap-2 text-xs md:text-sm font-semibold text-white/90">
+                <span className="px-3 py-2 rounded-lg bg-white/10 border border-electric-500/25">Purchase 5k+ credits at 5%</span>
+                <span className="px-3 py-2 rounded-lg bg-white/10 border border-electric-500/25">Purchase under 5k credits at 10%</span>
+              </div>
+            ) }, { title: 'Premium picks', icon: <Sparkles className="text-neon-500" size={28} />, logos: premiumLogos, rateLine: (
+              <div className="flex flex-wrap gap-2 text-xs md:text-sm font-semibold text-white/90">
+                <span className="px-3 py-2 rounded-lg bg-white/10 border border-electric-500/25">Purchase credits at 12%</span>
+              </div>
+            ) }].map((section) => (
             <motion.div
               key={section.title}
               className="bg-charcoal-800/80 border border-electric-500/15 rounded-2xl p-6 md:p-8 shadow-[0_0_22px_rgba(57,255,20,0.12)]"
@@ -118,6 +127,7 @@ const CreditHome = () => {
                   <p className="text-white/85">Tap a platform to load faster.</p>
                 </div>
               </div>
+              {section.rateLine}
               {renderLogoGrid(section.logos)}
             </motion.div>
           ))}

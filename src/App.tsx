@@ -98,31 +98,33 @@ function App() {
                 <h1 className="text-xl font-heading font-bold text-neon-500">Credits, Game & Admin Links</h1>
               </div>
             </div>
-            <div className="flex flex-wrap items-center justify-end gap-3">
+            <div className="flex flex-wrap items-center justify-end gap-4">
               {navItems.map((item) => (
                 <button
                   key={item.key}
                   onClick={() => navigate(item.key)}
-                  className={`relative overflow-hidden rounded-2xl border border-electric-500/30 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-electric-500/60 ${
+                  className={`group relative flex flex-col items-center gap-2 rounded-2xl px-2 sm:px-4 py-2 sm:py-3 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-electric-500/60 ${
                     route === item.key
-                      ? 'shadow-[0_0_22px_rgba(57,255,20,0.45)] scale-[1.02]'
-                      : 'hover:scale-[1.02]'
+                      ? 'scale-[1.04] text-neon-400 drop-shadow-[0_0_16px_rgba(57,255,20,0.55)]'
+                      : 'hover:scale-[1.03]'
                   }`}
                 >
                   <img
                     src={item.image}
                     alt={item.label}
-                    className="h-16 sm:h-20 w-auto object-contain block mx-auto"
+                    className="h-20 sm:h-24 w-auto object-contain block mx-auto"
                     loading="eager"
                   />
-                  <span className="sr-only">{item.label}</span>
+                  <span className="text-xs sm:text-sm font-semibold tracking-wide text-white/90 group-hover:text-neon-300 transition-colors">
+                    {item.label}
+                  </span>
                 </button>
               ))}
             </div>
           </div>
         </header>
 
-        <main id="content-area" className="relative z-10 pb-8">
+        <main id="content-area" className="relative z-10 pb-8 min-h-[calc(100vh-7.5rem)]">
           {route === 'admin' ? (
             <BackendLinks />
           ) : route === 'games' ? (
