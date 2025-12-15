@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 820 200" role="img" aria-labelledby="title desc">
   <title id="title">Pimp Gamez logo</title>
-  <desc id="desc">Neon green Pimp Gamez wordmark with purple outline on a dark background.</desc>
+  <desc id="desc">Neon green Pimp Gamez wordmark with purple outline on a transparent background.</desc>
   <defs>
     <linearGradient id="glow" x1="0%" y1="0%" x2="100%" y2="100%">
       <stop offset="0%" stop-color="#39ff14" />
@@ -17,6 +17,5 @@
       </feMerge>
     </filter>
   </defs>
-  <rect width="100%" height="100%" fill="#050505" rx="12" />
   <text x="50%" y="62%" text-anchor="middle" font-family="'UnifrakturCook', 'Old English Text MT', 'Goudy Text MT', serif" font-weight="700" font-size="124" fill="url(#glow)" stroke="#6d28d9" stroke-width="12" paint-order="stroke fill" filter="url(#shadow)">PIMP GAMEZ</text>
 </svg>
