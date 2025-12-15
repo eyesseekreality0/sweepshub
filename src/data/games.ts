@@ -364,4 +364,25 @@ export const games: Game[] = [
     logo: '/greatballsoffire.jpg',
     adminUrl: ''
   },
+  {
+    id: 'moolah',
+    name: 'MOOLAH',
+    link: 'https://moolah.vip:8888/',
+    logo: '/moo.jpg',
+    adminUrl: 'https://moolah.vip:8781/default.aspx?'
+  },
+  {
+    id: 'lucky-paradise',
+    name: 'LUCKYPARADISE',
+    link: 'https://www.luckyparadise777.com/',
+    logo: '/lp.jpg',
+    adminUrl: 'https://agent.luckyparadise777.com/admin/login'
+  },
+  {
+    id: 'joker',
+    name: 'JOKER',
+    link: 'https://www.joker777.win/',
+    logo: '/joker.png',
+    adminUrl: 'https://agent.joker777.win/admin/login'
+  },
 ];
