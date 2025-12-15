@@ -36,7 +36,7 @@ function App() {
 
       try {
         await introVideoRef.current.play();
-      } catch (error) {
+      } catch {
         setIntroError(true);
         setShowIntro(false);
       }
@@ -53,18 +53,18 @@ function App() {
     setRoute(target);
   };
 
-  const navItems: { key: Route; label: string }[] = [
-    { key: 'home', label: 'Credits Home' },
-    { key: 'games', label: 'Game Links' },
-    { key: 'admin', label: 'Admin Links' }
+  const navItems: { key: Route; label: string; image: string }[] = [
+    { key: 'home', label: 'Credits Home', image: '/credits%20home.png' },
+    { key: 'games', label: 'Game Links', image: '/game%20links.png' },
+    { key: 'admin', label: 'Admin Links', image: '/admin%20links.png' }
   ];
 
   if (showIntro) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-[url('/logo.png')] bg-cover bg-center relative overflow-hidden px-6 py-10">
+      <div className="relative min-h-screen w-screen overflow-hidden bg-black">
         <video
           ref={introVideoRef}
-          className="relative z-10 max-w-4xl w-full max-h-[70vh] rounded-2xl shadow-[0_0_36px_rgba(57,255,20,0.35)] object-contain"
+          className="absolute inset-0 h-full w-full object-cover"
           src="/Untitled%20design.mp4"
           autoPlay
           muted
@@ -75,12 +75,12 @@ function App() {
             setShowIntro(false);
           }}
         />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/40 via-electric-500/25 to-neon-500/20" aria-hidden />
         {introError && (
           <div className="absolute bottom-6 inset-x-6 z-20 text-center text-sm font-semibold text-white drop-shadow-[0_0_16px_rgba(57,255,20,0.6)]">
             Intro video failed to load. Continuing to site.
           </div>
         )}
-        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-electric-500/15 to-neon-500/10" aria-hidden />
       </div>
     );
   }
@@ -103,13 +103,19 @@ function App() {
                 <button
                   key={item.key}
                   onClick={() => navigate(item.key)}
-                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors duration-200 border border-electric-500/30 ${
+                  className={`relative overflow-hidden rounded-lg border border-electric-500/30 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-electric-500/60 ${
                     route === item.key
-                      ? 'bg-electric-500 text-black shadow-[0_0_18px_rgba(57,255,20,0.35)]'
-                      : 'bg-charcoal-800 text-white hover:bg-charcoal-700'
+                      ? 'shadow-[0_0_22px_rgba(57,255,20,0.45)] scale-[1.02]'
+                      : 'hover:scale-[1.02]'
                   }`}
                 >
-                  {item.label}
+                  <img
+                    src={item.image}
+                    alt={item.label}
+                    className="h-12 w-auto object-contain block"
+                    loading="eager"
+                  />
+                  <span className="sr-only">{item.label}</span>
                 </button>
               ))}
             </div>
