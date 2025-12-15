@@ -7,8 +7,8 @@ export interface CreditGameGroup {
 
 export const tieredDiscount: CreditGameGroup = {
   title: 'Tiered Discounts',
-  description: 'Save more when you load 5,000 or more credits.',
-  rate: '5% off 5k+ | 10% off under 5k',
+  description: 'Save more when you purchase 5k or more credits.',
+  rate: 'Purchase 5k+ for 5% | Purchase under 5k for 10%',
   games: [
     'VBlink',
     'UltraPanda',
@@ -33,6 +33,6 @@ export const tieredDiscount: CreditGameGroup = {
 export const premiumRate: CreditGameGroup = {
   title: 'Flat 12% Rate',
   description: 'Consistent pricing across every order size.',
-  rate: '12% flat',
+  rate: '12%',
   games: ['YOLO', 'MegaSpin', 'Moolah', 'Magic Time']
 };
