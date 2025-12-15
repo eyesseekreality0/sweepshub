@@ -63,12 +63,12 @@ const GamesList = () => {
                   {formatGameName(game.name)}
                 </h3>
                 <div className="relative group mt-auto">
-                  <div className="absolute -inset-0.5 bg-gradient-to-r from-electric-500 to-neon-500 rounded-lg blur opacity-60 group-hover:opacity-100 transition duration-200"></div>
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-electric-500 to-neon-500 rounded-xl blur opacity-60 group-hover:opacity-100 transition duration-200"></div>
                   <motion.a
                     href={game.link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="relative flex items-center justify-center gap-1 md:gap-2 w-full py-2 md:py-2.5 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-lg font-medium transition-colors duration-200 text-xs md:text-sm"
+                    className="relative flex items-center justify-center gap-1.5 md:gap-3 w-full py-3 md:py-3.5 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-xl font-semibold transition-colors duration-200 text-sm md:text-base"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                   >

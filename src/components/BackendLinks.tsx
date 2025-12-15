@@ -62,11 +62,11 @@ const BackendLinks = () => {
                   href={game.adminUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-1 md:gap-2 w-full py-2 md:py-2.5 px-2 md:px-3 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-lg font-medium text-xs md:text-sm transition-colors duration-200 shadow-[0_0_18px_rgba(57,255,20,0.35)]"
+                  className="flex items-center justify-center gap-1.5 md:gap-3 w-full py-3 md:py-3.5 px-3 md:px-4 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-xl font-semibold text-sm md:text-base transition-colors duration-200 shadow-[0_0_18px_rgba(57,255,20,0.35)]"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
                 >
-                  Backend Login <ExternalLink size={14} className="md:hidden" /><ExternalLink size={16} className="hidden md:inline" />
+                  Backend Login <ExternalLink size={14} className="md:hidden" /><ExternalLink size={18} className="hidden md:inline" />
                 </motion.a>
               </div>
             </motion.li>

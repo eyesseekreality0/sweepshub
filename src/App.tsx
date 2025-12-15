@@ -98,12 +98,12 @@ function App() {
                 <h1 className="text-xl font-heading font-bold text-neon-500">Credits, Game & Admin Links</h1>
               </div>
             </div>
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center justify-end gap-3">
               {navItems.map((item) => (
                 <button
                   key={item.key}
                   onClick={() => navigate(item.key)}
-                  className={`relative overflow-hidden rounded-lg border border-electric-500/30 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-electric-500/60 ${
+                  className={`relative overflow-hidden rounded-2xl border border-electric-500/30 bg-white/5 px-3 sm:px-4 py-2.5 sm:py-3 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-electric-500/60 ${
                     route === item.key
                       ? 'shadow-[0_0_22px_rgba(57,255,20,0.45)] scale-[1.02]'
                       : 'hover:scale-[1.02]'
@@ -112,7 +112,7 @@ function App() {
                   <img
                     src={item.image}
                     alt={item.label}
-                    className="h-12 w-auto object-contain block"
+                    className="h-16 sm:h-20 w-auto object-contain block mx-auto"
                     loading="eager"
                   />
                   <span className="sr-only">{item.label}</span>
