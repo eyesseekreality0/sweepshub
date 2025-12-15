@@ -4,7 +4,11 @@
 
 :root {
   color-scheme: dark;
-  background-color: #030304;
+  background-color: #1b0d2a;
+  background-image: url('/logo.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .neon-title {
