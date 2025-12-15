@@ -41,9 +41,6 @@ function App() {
 
   return (
     <div className="min-h-screen bg-midnight-975 text-white relative overflow-hidden">
-      <div className="absolute inset-0 bg-[url('/tech-pimp-bg.svg')] bg-cover bg-center" aria-hidden="true" />
-      <div className="absolute inset-0 bg-midnight-975/75 backdrop-blur-sm" aria-hidden="true" />
-
       <div className="relative z-10">
         <header className="sticky top-0 z-20 bg-midnight-975/85 backdrop-blur border-b border-electric-500/10">
           <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-4">
