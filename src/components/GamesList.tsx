@@ -41,7 +41,7 @@ const GamesList = () => {
             onSearchChange={setSearchTerm}
           />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-3">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-2.5 sm:gap-3">
             {filteredGames.map((game) => (
               <motion.div
                 key={game.id}
@@ -52,7 +52,7 @@ const GamesList = () => {
                 transition={{ duration: 0.5 }}
                 whileHover={{ y: -5, transition: { duration: 0.2 } }}
               >
-                <div className="p-2.5 md:p-3 flex flex-col gap-2.5 md:gap-3 h-full">
+                <div className="p-2 md:p-3 flex flex-col gap-2 md:gap-3 h-full">
                   <div className="bg-charcoal-900/80 rounded-lg flex items-center justify-center aspect-square border border-electric-500/10">
                     <img
                       src={game.logo}
@@ -61,7 +61,7 @@ const GamesList = () => {
                       loading="lazy"
                     />
                   </div>
-                  <h3 className="text-xs md:text-sm font-semibold text-center leading-tight break-words hyphens-auto flex items-center justify-center min-h-[2.5rem]">
+                  <h3 className="text-[11px] sm:text-xs md:text-sm font-semibold text-center leading-tight break-words hyphens-auto flex items-center justify-center min-h-[2.25rem] md:min-h-[2.75rem]">
                     {formatGameName(game.name)}
                   </h3>
                   <div className="relative group mt-auto">
@@ -70,7 +70,7 @@ const GamesList = () => {
                       href={game.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="relative flex items-center justify-center gap-1.5 md:gap-3 w-full py-3 md:py-3.5 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-xl font-semibold transition-colors duration-200 text-sm md:text-base"
+                      className="relative flex items-center justify-center gap-1.5 md:gap-3 w-full py-2.5 md:py-3 bg-gradient-to-r from-electric-500 to-neon-500 hover:from-electric-400 hover:to-neon-400 text-black rounded-xl font-semibold transition-colors duration-200 text-xs sm:text-sm md:text-base"
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                     >
