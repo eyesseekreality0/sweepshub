@@ -14,7 +14,10 @@ const getRouteFromHash = (): Route => {
 
 function App() {
   const [route, setRoute] = useState<Route>(getRouteFromHash);
+  const [showIntro, setShowIntro] = useState(true);
+  const [introError, setIntroError] = useState(false);
   const [videoError, setVideoError] = useState(false);
+  const introVideoRef = useRef<HTMLVideoElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
 
   const videoSources = useMemo(
@@ -40,6 +43,23 @@ function App() {
     }
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    if (!showIntro) return;
+
+    const attemptIntroPlay = async () => {
+      if (!introVideoRef.current) return;
+
+      try {
+        await introVideoRef.current.play();
+      } catch (error) {
+        setIntroError(true);
+        setShowIntro(false);
+      }
+    };
+
+    attemptIntroPlay();
+  }, [showIntro]);
 
   useEffect(() => {
     const attemptPlay = async () => {
@@ -69,6 +89,38 @@ function App() {
     { key: 'games', label: 'Game Links' },
     { key: 'admin', label: 'Admin Links' }
   ];
+
+  if (showIntro) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
+        <video
+          ref={introVideoRef}
+          className="absolute inset-0 w-full h-full object-cover"
+          src="/Untitled%20design.mp4"
+          autoPlay
+          muted
+          playsInline
+          onEnded={() => setShowIntro(false)}
+          onError={() => {
+            setIntroError(true);
+            setShowIntro(false);
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" aria-hidden />
+        <div className="relative z-10 flex flex-col items-center gap-4 text-white text-center px-6">
+          <img src="/pimp-gamez-logo.svg" alt="Pimp Gamez" className="h-16 w-auto drop-shadow-[0_0_24px_rgba(57,255,20,0.45)]" />
+          <p className="text-lg font-semibold">Preparing your experience...</p>
+          {introError && <p className="text-sm text-red-200">Intro video failed to load. Continuing to site.</p>}
+          <button
+            onClick={() => setShowIntro(false)}
+            className="px-4 py-2 rounded-lg bg-electric-500 text-black font-semibold shadow-[0_0_18px_rgba(57,255,20,0.35)] hover:shadow-[0_0_24px_rgba(57,255,20,0.45)] transition-shadow"
+          >
+            Skip Intro
+          </button>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen text-white relative overflow-hidden bg-black">
