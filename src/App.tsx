@@ -103,21 +103,20 @@ function App() {
                 <button
                   key={item.key}
                   onClick={() => navigate(item.key)}
-                  className={`group relative flex flex-col items-center gap-2 rounded-2xl px-2 sm:px-4 py-2 sm:py-3 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-electric-500/60 ${
+                  aria-label={item.label}
+                  className={`group relative flex items-center justify-center rounded-2xl p-2 sm:p-3 transition-transform duration-200 focus:outline-none focus:ring-2 focus:ring-electric-500/60 ${
                     route === item.key
-                      ? 'scale-[1.04] text-neon-400 drop-shadow-[0_0_16px_rgba(57,255,20,0.55)]'
+                      ? 'scale-[1.05] drop-shadow-[0_0_16px_rgba(57,255,20,0.55)]'
                       : 'hover:scale-[1.03]'
                   }`}
                 >
+                  <span className="sr-only">{item.label}</span>
                   <img
                     src={item.image}
                     alt={item.label}
-                    className="h-20 sm:h-24 w-auto object-contain block mx-auto"
+                    className="h-16 sm:h-20 md:h-24 w-auto object-contain block mx-auto drop-shadow-[0_0_18px_rgba(57,255,20,0.55)] transition duration-200 group-hover:drop-shadow-[0_0_24px_rgba(57,255,20,0.7)]"
                     loading="eager"
                   />
-                  <span className="text-xs sm:text-sm font-semibold tracking-wide text-white/90 group-hover:text-neon-300 transition-colors">
-                    {item.label}
-                  </span>
                 </button>
               ))}
             </div>
