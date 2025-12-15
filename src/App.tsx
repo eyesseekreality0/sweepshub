@@ -106,13 +106,13 @@ function App() {
                 <h1 className="text-2xl font-heading font-semibold text-sky-200">Credits, Game & Admin Links</h1>
               </div>
             </div>
-            <div className="flex flex-wrap items-center justify-end gap-4">
+            <div className="flex items-stretch lg:items-center justify-end gap-3 lg:gap-4 w-full lg:w-auto overflow-x-auto pb-2 -mb-2 lg:pb-0 lg:-mb-0 snap-x snap-mandatory">
               {navItems.map((item) => (
                 <button
                   key={item.key}
                   onClick={() => navigate(item.key)}
                   aria-label={item.label}
-                  className={`group relative flex items-center justify-center rounded-xl p-2 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400/60 ${
+                  className={`group relative flex items-center justify-center rounded-xl p-2 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-sky-400/60 min-w-[8.25rem] sm:min-w-[9rem] shrink-0 snap-center ${
                     route === item.key
                       ? 'bg-gradient-to-br from-sky-500/25 via-emerald-500/20 to-cyan-500/25 border border-sky-400/40 shadow-[0_10px_40px_-18px_rgba(14,165,233,0.6)] scale-[1.02]'
                       : 'bg-white/5 border border-white/10 hover:border-sky-300/40 hover:bg-white/10'
@@ -122,7 +122,7 @@ function App() {
                   <img
                     src={item.image}
                     alt={item.label}
-                    className="h-16 sm:h-20 md:h-24 w-auto object-contain block mx-auto drop-shadow-[0_10px_22px_rgba(14,165,233,0.35)] transition duration-200 group-hover:drop-shadow-[0_12px_24px_rgba(14,165,233,0.5)]"
+                    className="h-14 sm:h-16 md:h-20 w-auto object-contain block mx-auto drop-shadow-[0_10px_22px_rgba(14,165,233,0.35)] transition duration-200 group-hover:drop-shadow-[0_12px_24px_rgba(14,165,233,0.5)]"
                     loading="eager"
                   />
                 </button>

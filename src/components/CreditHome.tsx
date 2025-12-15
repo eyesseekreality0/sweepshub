@@ -63,7 +63,7 @@ const CreditHome = () => {
     <section className="pt-10 pb-14 md:pb-16 relative min-h-[calc(100vh-7.5rem)]" id="home">
       <div className="container mx-auto px-4">
         <motion.div
-          className="grid lg:grid-cols-[1.05fr_0.95fr] gap-10 items-center mb-12"
+          className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 items-center mb-10 md:mb-12"
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
@@ -73,7 +73,7 @@ const CreditHome = () => {
               <Sparkles size={18} className="text-sky-300" />
               Smooth credit loads without the glare
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-sky-50 leading-tight">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-heading font-semibold text-sky-50 leading-tight">
               A calmer take on premium credits
             </h1>
             <p className="text-lg md:text-xl text-slate-200 max-w-2xl leading-relaxed">
@@ -94,7 +94,7 @@ const CreditHome = () => {
 
           <div className="relative">
             <div className="absolute -inset-6 bg-gradient-to-br from-sky-500/15 via-emerald-500/12 to-fuchsia-500/10 blur-3xl" aria-hidden />
-            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 shadow-[0_20px_60px_-28px_rgba(56,189,248,0.45)] p-6 md:p-8 flex flex-col gap-6">
+            <div className="relative overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 shadow-[0_20px_60px_-28px_rgba(56,189,248,0.45)] p-5 md:p-8 flex flex-col gap-6">
               <div className="flex items-center justify-between">
                 <img src="/pimp-gamez-logo.svg" alt="Pimp Gamez logo" className="w-40" loading="eager" />
                 <div className="rounded-full border border-sky-400/40 bg-sky-500/15 px-3 py-1 text-xs font-semibold text-sky-100">Updated layout</div>

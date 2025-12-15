@@ -9,7 +9,7 @@ interface SearchBarProps {
 
 const SearchBar: React.FC<SearchBarProps> = ({ searchTerm, onSearchChange, placeholder = 'Search games...' }) => {
   return (
-    <div className="relative max-w-sm md:max-w-md w-full mx-auto mb-4 md:mb-8">
+    <div className="relative w-full max-w-full sm:max-w-md mx-auto mb-4 md:mb-8">
       <div className="absolute inset-y-0 left-3 flex items-center pointer-events-none">
         <Search className="h-4 w-4 md:h-5 md:w-5 text-white/40" />
       </div>
