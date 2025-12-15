@@ -52,10 +52,10 @@ const CreditHome = () => {
               Instant credit loads
             </p>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-heading font-bold text-neon-500 leading-tight">
-              Premium credits for the games you actually play
+              Premium credits for the best rates
             </h1>
             <p className="text-base md:text-lg text-white/80 max-w-2xl leading-relaxed">
-              Pick your platform, drop the amount, and we handle the rest. Transparent pricing and rapid fulfillment keep you in the
+              Pick your platforms, drop the amount, and we handle the rest. Transparent pricing and rapid fulfillment keep you in the
               action without the wait.
             </p>
 
@@ -73,7 +73,7 @@ const CreditHome = () => {
               <div className="bg-charcoal-900/70 border border-electric-500/15 rounded-xl px-4 py-3 flex flex-col gap-1">
                 <p className="text-xs uppercase tracking-[0.18em] text-white/55">Fulfillment</p>
                 <p className="text-lg font-heading font-bold text-neon-500">Fast & secure</p>
-                <p className="text-sm text-white/75 leading-snug">Verified loads with responsive support when you need it.</p>
+                <p className="text-sm text-white/75 leading-snug">Verified distributor with responsive support when you need it.</p>
               </div>
             </div>
           </div>
@@ -81,7 +81,7 @@ const CreditHome = () => {
           <div className="flex flex-col items-center gap-4">
             <img src="/pimp-gamez-logo.svg" alt="Pimp Gamez logo" className="w-full max-w-2xl" loading="eager" />
             <div className="grid grid-cols-2 gap-3 w-full max-w-xl">
-              {["No background clutter", "Focused on your games", "Trusted seller", "Clear neon rates"].map((pill) => (
+              {["Trusted Distributor", "Clear Rates"].map((pill) => (
                 <span
                   key={pill}
                   className="px-3 py-2 rounded-lg bg-charcoal-900/80 border border-electric-500/10 text-xs text-white/80 text-center"
@@ -114,7 +114,7 @@ const CreditHome = () => {
               </div>
               <div className="rounded-xl bg-charcoal-900/70 border border-electric-500/20 px-4 py-3 text-sm text-white/80 shadow-inner">
                 <p className="font-semibold text-white">{tieredDiscount.title}</p>
-                <p>No hidden fees. Discounts calculated before checkout.</p>
+                <p>No hidden fees. Transparent Pricing.</p>
               </div>
             </div>
             {renderLogoGrid(tieredLogos)}
@@ -152,7 +152,7 @@ const CreditHome = () => {
             {
               icon: <ShieldCheck className="text-neon-500" size={24} />,
               title: 'Secure loads',
-              body: 'Trusted credits with fast turnaround so you can jump back into the action.',
+              body: 'Credits for popular platforms so you can keep active players.',
             },
             {
               icon: <BadgePercent className="text-neon-500" size={24} />,
@@ -162,7 +162,7 @@ const CreditHome = () => {
             {
               icon: <Zap className="text-neon-500" size={24} />,
               title: 'Hands-on support',
-              body: 'Quick responses if you ever need help with your order.',
+              body: 'Quick responses if you ever need assistance.',
             },
           ].map((perk) => (
             <div
