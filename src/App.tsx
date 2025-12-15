@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import GamesList from './components/GamesList';
 import BackendLinks from './components/BackendLinks';
 import CreditHome from './components/CreditHome';
@@ -16,23 +16,7 @@ function App() {
   const [route, setRoute] = useState<Route>(getRouteFromHash);
   const [showIntro, setShowIntro] = useState(true);
   const [introError, setIntroError] = useState(false);
-  const [videoError, setVideoError] = useState(false);
   const introVideoRef = useRef<HTMLVideoElement>(null);
-  const videoRef = useRef<HTMLVideoElement>(null);
-
-  const videoSources = useMemo(
-    () => [
-      {
-        src: 'https://cdn.coverr.co/videos/coverr-fantastic-galaxy-1467/1080p.mp4',
-        type: 'video/mp4'
-      },
-      {
-        src: 'https://cdn.coverr.co/videos/coverr-night-sky-4310/1080p.mp4',
-        type: 'video/mp4'
-      }
-    ],
-    []
-  );
 
   useEffect(() => {
     const handleHashChange = () => setRoute(getRouteFromHash());
@@ -61,21 +45,6 @@ function App() {
     attemptIntroPlay();
   }, [showIntro]);
 
-  useEffect(() => {
-    const attemptPlay = async () => {
-      const element = videoRef.current;
-      if (!element) return;
-
-      try {
-        await element.play();
-      } catch (error) {
-        setVideoError(true);
-      }
-    };
-
-    attemptPlay();
-  }, []);
-
   const navigate = (target: Route) => {
     const nextHash = target === 'home' ? '#/home' : target === 'games' ? '#/games' : '#/admin';
     if (window.location.hash !== nextHash) {
@@ -92,10 +61,10 @@ function App() {
 
   if (showIntro) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-black relative overflow-hidden">
+      <div className="min-h-screen flex items-center justify-center bg-[url('/logo.png')] bg-cover bg-center relative overflow-hidden px-6 py-10">
         <video
           ref={introVideoRef}
-          className="absolute inset-0 w-full h-full object-cover"
+          className="relative z-10 max-w-4xl w-full max-h-[70vh] rounded-2xl shadow-[0_0_36px_rgba(57,255,20,0.35)] object-contain"
           src="/Untitled%20design.mp4"
           autoPlay
           muted
@@ -106,51 +75,21 @@ function App() {
             setShowIntro(false);
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/30 to-black/70" aria-hidden />
-        <div className="relative z-10 flex flex-col items-center gap-4 text-white text-center px-6">
-          <img src="/pimp-gamez-logo.svg" alt="Pimp Gamez" className="h-16 w-auto drop-shadow-[0_0_24px_rgba(57,255,20,0.45)]" />
-          <p className="text-lg font-semibold">Preparing your experience...</p>
-          {introError && <p className="text-sm text-red-200">Intro video failed to load. Continuing to site.</p>}
-          <button
-            onClick={() => setShowIntro(false)}
-            className="px-4 py-2 rounded-lg bg-electric-500 text-black font-semibold shadow-[0_0_18px_rgba(57,255,20,0.35)] hover:shadow-[0_0_24px_rgba(57,255,20,0.45)] transition-shadow"
-          >
-            Skip Intro
-          </button>
-        </div>
+        {introError && (
+          <div className="absolute bottom-6 inset-x-6 z-20 text-center text-sm font-semibold text-white drop-shadow-[0_0_16px_rgba(57,255,20,0.6)]">
+            Intro video failed to load. Continuing to site.
+          </div>
+        )}
+        <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-electric-500/15 to-neon-500/10" aria-hidden />
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden bg-black">
-      {!videoError && (
-        <video
-          ref={videoRef}
-          className="fixed inset-0 w-full h-full object-cover brightness-[0.62] saturate-125"
-          autoPlay
-          loop
-          muted
-          playsInline
-          preload="auto"
-          poster="/tech-pimp-bg.svg"
-          onError={() => setVideoError(true)}
-          onLoadedData={() => setVideoError(false)}
-        >
-          {videoSources.map((source) => (
-            <source key={source.src} src={source.src} type={source.type} />
-          ))}
-        </video>
-      )}
-      {videoError && (
-        <div
-          className="fixed inset-0 bg-[url('/tech-pimp-bg.svg')] bg-cover bg-center brightness-75"
-          aria-hidden
-        />
-      )}
-      <div className="fixed inset-0 bg-gradient-to-br from-[#0a0f1e]/80 via-[#0c1b29]/70 to-[#120926]/78 mix-blend-screen" aria-hidden />
+    <div className="min-h-screen text-white relative overflow-hidden bg-[url('/logo.png')] bg-cover bg-center">
+      <div className="fixed inset-0 bg-gradient-to-br from-white/20 via-electric-500/10 to-neon-500/10" aria-hidden />
       <div className="relative z-10">
-        <header className="sticky top-0 z-20 bg-midnight-975/85 backdrop-blur border-b border-electric-500/10">
+        <header className="sticky top-0 z-20 bg-white/20 backdrop-blur-md border-b border-electric-500/20">
           <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-4">
             <div className="flex items-center gap-3">
               <img src="/pimp-gamez-logo.svg" alt="Pimp Gamez" className="h-10 sm:h-12 w-auto" />
