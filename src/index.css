@@ -4,12 +4,13 @@
 
 :root {
   color-scheme: dark;
-  background-color: #0b1224;
+  background-color: #05060c;
   background-image:
-    radial-gradient(circle at 10% 20%, rgba(56, 189, 248, 0.15), transparent 30%),
-    radial-gradient(circle at 80% 0%, rgba(236, 72, 153, 0.12), transparent 28%),
-    radial-gradient(circle at 80% 70%, rgba(52, 211, 153, 0.12), transparent 32%),
-    linear-gradient(135deg, #0b1224, #0f172a);
+    radial-gradient(circle at 12% 18%, rgba(154, 47, 255, 0.2), transparent 32%),
+    radial-gradient(circle at 82% 8%, rgba(57, 255, 20, 0.2), transparent 30%),
+    radial-gradient(circle at 74% 72%, rgba(154, 47, 255, 0.16), transparent 34%),
+    radial-gradient(circle at 26% 78%, rgba(57, 255, 20, 0.12), transparent 32%),
+    linear-gradient(140deg, #05060c, #0b0c12 40%, #07070d 100%);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
