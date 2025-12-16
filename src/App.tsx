@@ -58,10 +58,10 @@ function App() {
     attemptIntroPlay();
   }, [showIntro]);
 
-  const navItems: { key: Route; label: string; image: string }[] = [
-    { key: 'home', label: 'Credits Home', image: '/credits%20home.png' },
-    { key: 'games', label: 'Game Links', image: '/game%20links.png' },
-    { key: 'admin', label: 'Admin Links', image: '/admin%20links.png' }
+  const navItems: { key: Route; label: string; accent: string }[] = [
+    { key: 'home', label: 'Credits', accent: 'Rates & Logos' },
+    { key: 'games', label: 'Game Links', accent: 'Play Direct' },
+    { key: 'admin', label: 'Admin Links', accent: 'Portal Access' }
   ];
 
   if (showIntro) {
@@ -113,19 +113,19 @@ function App() {
                   key={item.key}
                   onClick={() => navigate(item.key)}
                   aria-label={item.label}
-                  className={`group relative flex items-center justify-center rounded-xl p-2 sm:p-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-neon-500/60 min-w-[8.25rem] sm:min-w-[9rem] shrink-0 snap-center ${
+                  className={`group relative flex flex-col items-start justify-center rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-neon-500/60 min-w-[8.25rem] sm:min-w-[9rem] shrink-0 snap-center text-left ${
                     route === item.key
                       ? 'bg-gradient-to-br from-electric-500/30 via-neon-500/24 to-electric-400/28 border border-electric-400/50 shadow-[0_10px_40px_-18px_rgba(154,47,255,0.6)] scale-[1.02]'
                       : 'bg-white/5 border border-white/10 hover:border-electric-400/40 hover:bg-electric-500/5'
                   }`}
                 >
-                  <span className="sr-only">{item.label}</span>
-                  <img
-                    src={item.image}
-                    alt={item.label}
-                    className="h-14 sm:h-16 md:h-20 w-auto object-contain block mx-auto drop-shadow-[0_10px_22px_rgba(154,47,255,0.4)] transition duration-200 group-hover:drop-shadow-[0_12px_24px_rgba(57,255,20,0.45)]"
-                    loading="eager"
-                  />
+                  <span className="text-sm sm:text-base font-semibold text-white drop-shadow-[0_0_12px_rgba(57,255,20,0.4)]">
+                    {item.label}
+                  </span>
+                  <span className="text-[11px] sm:text-xs text-electric-300/80">{item.accent}</span>
+                  <span className="absolute inset-y-0 right-2 flex items-center opacity-0 group-hover:opacity-100 transition text-neon-500 text-xs">
+                    »
+                  </span>
                 </button>
               ))}
             </div>
