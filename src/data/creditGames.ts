@@ -6,9 +6,9 @@ export interface CreditGameGroup {
 }
 
 export const tieredDiscount: CreditGameGroup = {
-  title: 'Tiered Discounts',
+  title: 'The best rates',
   description: 'Save more when you purchase 5k or more credits.',
-  rate: 'Purchase 5k+ for 5% | Purchase under 5k for 10%',
+  rate: 'Purchase 5k or more for 5% or Purchase under 5k for 10%',
   games: [
     'VBlink',
     'UltraPanda',
