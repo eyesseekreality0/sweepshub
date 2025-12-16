@@ -6,7 +6,6 @@ export interface CreditGameGroup {
 }
 
 export const tieredDiscount: CreditGameGroup = {
-  title: 'The best rates',
   rate: 'Purchase 5k or more for 5% or Purchase under 5k for 10%',
   games: [
     'VBlink',
@@ -30,7 +29,6 @@ export const tieredDiscount: CreditGameGroup = {
 };
 
 export const premiumRate: CreditGameGroup = {
-  title: 'Flat 12% Rate',
-  rate: '12%',
+  rate: 'Flat 12% Rate',
   games: ['YOLO', 'MegaSpin', 'Moolah', 'Magic Time']
 };
