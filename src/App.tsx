@@ -59,9 +59,9 @@ function App() {
   }, [handleIntroFinish, showIntro]);
 
   const navItems: { key: Route; label: string; accent: string }[] = [
-    { key: 'home', label: 'Credits', accent: 'Rates & Logos' },
-    { key: 'games', label: 'Game Links', accent: 'Play Direct' },
-    { key: 'admin', label: 'Admin Links', accent: 'Portal Access' }
+    { key: 'home', label: 'Credits' },
+    { key: 'games', label: 'Game Links' },
+    { key: 'admin', label: 'Admin Links' }
   ];
 
   if (showIntro) {
