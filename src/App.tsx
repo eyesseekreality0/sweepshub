@@ -99,7 +99,7 @@ function App() {
       <div className="absolute inset-0 bg-gradient-to-b from-midnight-950/80 via-midnight-975/70 to-charcoal-800/80" aria-hidden />
       <div className="relative z-10">
         <header className="sticky top-0 z-20 bg-midnight-900/70 backdrop-blur-lg border-b border-electric-500/20 shadow-lg">
-          <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-3 lg:gap-4">
+          <div className="container mx-auto px-4 py-4 flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 lg:gap-4">
             <div className="flex items-center gap-3">
               <img src="/pimp-gamez-logo.svg" alt="Pimp Gamez" className="h-10 sm:h-12 w-auto drop-shadow-[0_0_24px_rgba(154,47,255,0.55)]" />
               <div>
@@ -107,13 +107,13 @@ function App() {
                 <h1 className="text-2xl font-heading font-semibold text-neon-500 drop-shadow-[0_0_22px_rgba(57,255,20,0.45)]">Credits, Game & Admin Links</h1>
               </div>
             </div>
-            <div className="flex flex-wrap items-stretch lg:items-center justify-end gap-3 lg:gap-4 w-full lg:w-auto">
+            <div className="grid grid-cols-1 sm:grid-cols-3 items-stretch lg:items-center justify-end gap-2 sm:gap-3 lg:gap-4 w-full lg:w-auto">
               {navItems.map((item) => (
                 <button
                   key={item.key}
                   onClick={() => navigate(item.key)}
                   aria-label={item.label}
-                  className={`group relative flex flex-col items-start justify-center rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-neon-500/60 min-w-[8.25rem] sm:min-w-[9rem] shrink-0 snap-center text-left ${
+                  className={`group relative flex flex-col items-start sm:items-center md:items-start justify-center rounded-xl px-3 py-2.5 sm:px-4 sm:py-3 transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-neon-500/60 w-full sm:w-auto min-w-0 sm:min-w-[9rem] shrink-0 snap-center text-left sm:text-center md:text-left ${
                     route === item.key
                       ? 'bg-gradient-to-br from-electric-500/30 via-neon-500/24 to-electric-400/28 border border-electric-400/50 shadow-[0_10px_40px_-18px_rgba(154,47,255,0.6)] scale-[1.02]'
                       : 'bg-white/5 border border-white/10 hover:border-electric-400/40 hover:bg-electric-500/5'
