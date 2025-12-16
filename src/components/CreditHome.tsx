@@ -11,7 +11,7 @@ const customLogoMap = new Map(
     ['joker', '/joker.png'],
     ['mawal', '/mawal.png'],
     ['moolah', '/moo.jpg'],
-    ['magictime', '/fortune2go.jpg'],
+    ['magictime', '/magic.jpg'],
   ] as const
 );
 
@@ -75,13 +75,12 @@ const CreditHome = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="inline-flex items-center gap-2 rounded-full border border-electric-500/30 bg-electric-500/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] text-neon-500 drop-shadow-[0_0_18px_rgba(57,255,20,0.45)]">
-            Credit board
           </div>
           <h1 className="mt-4 text-3xl sm:text-4xl md:text-5xl font-heading font-semibold text-neon-500 drop-shadow-[0_0_26px_rgba(57,255,20,0.45)]">
-            Credits we distribute & the exact rates
+             A Reliable Credit Source for Gameroom Operators
           </h1>
           <p className="mt-3 text-base sm:text-lg text-electric-300">
-            Neon green and purple—just like the logo. Pick your platform, confirm the rate, and you are set.
+            Consistent delivery and standardized rates you can plan your business around.
           </p>
         </motion.div>
 
