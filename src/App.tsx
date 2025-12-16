@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import GamesList from './components/GamesList';
 import BackendLinks from './components/BackendLinks';
 import CreditHome from './components/CreditHome';
@@ -18,18 +18,18 @@ function App() {
   const [introError, setIntroError] = useState(false);
   const introVideoRef = useRef<HTMLVideoElement>(null);
 
-  const navigate = (target: Route) => {
+  const navigate = useCallback((target: Route) => {
     const nextHash = target === 'home' ? '#/home' : target === 'games' ? '#/games' : '#/admin';
     if (window.location.hash !== nextHash) {
       window.location.hash = nextHash;
     }
     setRoute(target);
-  };
+  }, []);
 
-  const handleIntroFinish = () => {
+  const handleIntroFinish = useCallback(() => {
     navigate('home');
     setShowIntro(false);
-  };
+  }, [navigate]);
 
   useEffect(() => {
     const handleHashChange = () => setRoute(getRouteFromHash());
@@ -56,7 +56,7 @@ function App() {
     };
 
     attemptIntroPlay();
-  }, [showIntro]);
+  }, [handleIntroFinish, showIntro]);
 
   const navItems: { key: Route; label: string; accent: string }[] = [
     { key: 'home', label: 'Credits', accent: 'Rates & Logos' },
@@ -91,7 +91,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen text-white relative overflow-hidden bg-midnight-975">
+    <div className="min-h-screen text-white relative overflow-hidden bg-midnight-975 bg-[url('/logo.png')] bg-cover bg-center">
       <div
         className="fixed inset-0 bg-[radial-gradient(circle_at_15%_18%,rgba(154,47,255,0.16),transparent_35%),radial-gradient(circle_at_82%_14%,rgba(57,255,20,0.18),transparent_32%),radial-gradient(circle_at_72%_82%,rgba(154,47,255,0.12),transparent_34%),radial-gradient(circle_at_28%_82%,rgba(57,255,20,0.14),transparent_30%)]"
         aria-hidden
@@ -107,7 +107,7 @@ function App() {
                 <h1 className="text-2xl font-heading font-semibold text-neon-500 drop-shadow-[0_0_22px_rgba(57,255,20,0.45)]">Credits, Game & Admin Links</h1>
               </div>
             </div>
-            <div className="flex items-stretch lg:items-center justify-end gap-3 lg:gap-4 w-full lg:w-auto overflow-x-auto pb-2 -mb-2 lg:pb-0 lg:-mb-0 snap-x snap-mandatory">
+            <div className="flex flex-wrap items-stretch lg:items-center justify-end gap-3 lg:gap-4 w-full lg:w-auto">
               {navItems.map((item) => (
                 <button
                   key={item.key}
@@ -119,10 +119,10 @@ function App() {
                       : 'bg-white/5 border border-white/10 hover:border-electric-400/40 hover:bg-electric-500/5'
                   }`}
                 >
-                  <span className="text-sm sm:text-base font-semibold text-white drop-shadow-[0_0_12px_rgba(57,255,20,0.4)]">
+                  <span className="text-sm sm:text-base font-semibold text-neon-500 drop-shadow-[0_0_12px_rgba(57,255,20,0.4)]">
                     {item.label}
                   </span>
-                  <span className="text-[11px] sm:text-xs text-electric-300/80">{item.accent}</span>
+                  <span className="text-[11px] sm:text-xs text-neon-500">{item.accent}</span>
                   <span className="absolute inset-y-0 right-2 flex items-center opacity-0 group-hover:opacity-100 transition text-neon-500 text-xs">
                     »
                   </span>
